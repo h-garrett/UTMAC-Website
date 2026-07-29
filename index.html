@@ -4,36 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UT Music Appreciation Club</title>
-    <link href="styles.css" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-    <div class="nav">
+    <nav class="nav">
         <div class="logo"></div>
         <div class="menu">
-            <button class="button">Home</button>
-            <button class="button">About</button>
-            <button class="button">Events</button>
-            <button class="button">Contact</button>
-            <button class="button">Join</button>
+            <a class="button" href="index.html">Home</a>
+            <a class="button" href="about.html">About</a>
+            <a class="button" href="events.html">Events</a>
+            <a class="button" href="contact.html">Contact</a>
+            <a class="button" href="join.html">Join</a>
         </div>
-    </div>
+    </nav>
 
     <div class="main">
         <div id="main-container">
             <div class="about">
                 <h1>WHAT IS UTMAC?</h1>
-                <h2><span>The University of Texas Music Appreciation Club</span> is an organization for
-                students at UT to share and expand their music tastes</h2>
+                <h2><span>The University of Texas Music Appreciation Club</span> 
+                is an organization for
+                students at UT to share and expand their music tastes. 
+                Each week, our members vote on an album to listen to and discuss. 
+                Check out some of the albums we've listened to below!</h2>
             </div>
             <div class="vote-box">
                 <h3 class="vote-status">
                     <span class="live-indicator"></span>
                     Voting is live!
                 </h3>
-                <button class="button" id="vote-link">VOTE NOW</button>
+                <a class="button" id="vote-link" href="vote.html">VOTE NOW</a>
             </div>
         </div>
+    </div>
+
+    <div class="grid" id="album-grid">
+
     </div>
 </body>
 </html>
