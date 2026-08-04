@@ -9,13 +9,15 @@
 </head>
 <body>
     <nav class="nav">
-        <div class="logo"></div>
+        <a href="index.html" class="logo">
+            <img src="images/logo/UTMAC.PNG"></img>
+        </a>
         <div class="menu">
             <a class="button" href="index.html">Home</a>
             <a class="button" href="about.html">About</a>
             <a class="button" href="events.html">Events</a>
             <a class="button" href="contact.html">Contact</a>
-            <a class="button" href="join.html">Join</a>
+            <a class="button" href="join.html" title="Join our Discord server!">Join</a>
         </div>
     </nav>
 
@@ -32,14 +34,16 @@
             <div class="vote-box">
                 <h3 class="vote-status">
                     <span class="live-indicator"></span>
-                    Voting is live!
+                    <span id="vote-status-text">Voting is live!</span>
                 </h3>
                 <a class="button" id="vote-link" href="vote.html">VOTE NOW</a>
             </div>
         </div>
     </div>
-
-    <div class="grid" id="album-grid">
+    <h2 id="prev-albums">Previous Albums of the Week
+        <div class="grid" id="album-grid"></div>
+    </h2>
+    
 
     </div>
 </body>
