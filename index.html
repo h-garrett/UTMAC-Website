@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UT Music Appreciation Club</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+    <style>
+        .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+        }
+    </style>
     <link href="css/styles.css" rel="stylesheet">
     <script src="js/script.js" defer></script>
 </head>
 <body>
+
     <nav class="nav">
+        <input type="checkbox" id="sidebar-active" style="display: none;">
+        <label for="sidebar-active" class="mobile open-sidebar">
+            <span class="material-symbols-outlined mobile">menu</span>
+        </label>
+        <label for="sidebar-active" id="overlay"></label>
         <a href="index.html" class="logo">
             <img src="images/logo/UTMAC.PNG"></img>
         </a>

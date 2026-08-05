@@ -1,4 +1,5 @@
 
+
 const VotingPhase = Object.freeze( {
     NOMINATIONS: "nominations",
     VOTING: "voting",
@@ -133,36 +134,36 @@ update();
 
 
 const albums = {
-    "3dcountry.jpg": "https://tidal.com/album/443964090",
-    "1000_gec_album.jpg": "https://tidal.com/album/129835816",
-    "1999_Joey_Badass.jpg": "https://tidal.com/album/90134054",
-    "Ants_from_Up_There_-_Black_Country,_New_Road.jpg": "https://tidal.com/album/201105433",
-    "Björk_-_Vespertine_album_cover.jpg": "https://tidal.com/album/68715357",
-    "Cocteau_Twins—Heaven_or_Las_Vegas.jpg": "https://tidal.com/album/2404954",
-    "Dream_Theater_-_Metropolis_Pt._2-_Scenes_from_a_Memory.jpg": "https://tidal.com/album/1844728",
-    "Ego_Death_at_a_Bachelorette_Party_-_Hayley_Williams.jpg": "https://tidal.com/album/470829563",
-    "there-is-love-in-you.jpg" : "https://tidal.com/album/160159948",
-    "habibifunk.jpg" : "https://tidal.com/album/453620168",
     "In_the_aeroplane_over_the_sea.jpg": "https://tidal.com/album/37265686",
-    "Lanquidity.jpg": "https://tidal.com/album/79564350",
-    "Mmfood.jpg": "https://tidal.com/album/143661100",
-    "ModalMusic.jpg": "https://tidal.com/album/163793677",
-    "Superunknown.jpg": "https://tidal.com/album/77647353/track/77647358",
-    "SystemofaDownToxicityalbumcover.jpg": "https://tidal.com/album/17825550",
-    "The_Glow_pt._2.jpg": "https://tidal.com/album/18083938",
-    "The_Sky's_Gone_Out.jpg": "https://tidal.com/album/102762862",
     "Three_cheers_clean.jpg": "https://tidal.com/album/293931",
-    "Titanic_Rising.jpg": "https://tidal.com/album/106478328",
-    "Travellingwithoutmoving.jpg": "https://tidal.com/album/117160041",
-    "Velvet_Underground_and_Nico.jpg": "https://tidal.com/album/17639797",
+    "Mmfood.jpg": "https://tidal.com/album/143661100",
+    "Björk_-_Vespertine_album_cover.jpg": "https://tidal.com/album/68715357",
     "Violent_Femmes.jpg": "https://tidal.com/album/192089978",
-    "Will_Wood_-_The_Normal_Album.jpg": "https://tidal.com/album/199347397"
+    "SystemofaDownToxicityalbumcover.jpg": "https://tidal.com/album/17825550",
+    "Velvet_Underground_and_Nico.jpg": "https://tidal.com/album/17639797",
+    "ModalMusic.jpg": "https://tidal.com/album/163793677",
+    "Titanic_Rising.jpg": "https://tidal.com/album/106478328",
+    "there-is-love-in-you.jpg" : "https://tidal.com/album/160159948",
+    "Will_Wood_-_The_Normal_Album.jpg": "https://tidal.com/album/199347397",
+    "Ants_from_Up_There_-_Black_Country,_New_Road.jpg": "https://tidal.com/album/201105433",
+    "Ego_Death_at_a_Bachelorette_Party_-_Hayley_Williams.jpg": "https://tidal.com/album/470829563",
+    "1999_Joey_Badass.jpg": "https://tidal.com/album/90134054",
+    "Cocteau_Twins—Heaven_or_Las_Vegas.jpg": "https://tidal.com/album/2404954",
+    "Lanquidity.jpg": "https://tidal.com/album/79564350",
+    "3dcountry.jpg": "https://tidal.com/album/443964090",
+    "habibifunk.jpg" : "https://tidal.com/album/453620168",
+    "Superunknown.jpg": "https://tidal.com/album/77647353/track/77647358",
+    "Travellingwithoutmoving.jpg": "https://tidal.com/album/117160041",
+    "The_Sky's_Gone_Out.jpg": "https://tidal.com/album/102762862",
+    "1000_gec_album.jpg": "https://tidal.com/album/129835816",
+    "The_Glow_pt._2.jpg": "https://tidal.com/album/18083938",
+    "Dream_Theater_-_Metropolis_Pt._2-_Scenes_from_a_Memory.jpg": "https://tidal.com/album/1844728",  
 }
 
 
 const grid = document.querySelector("#album-grid");
 
-Object.entries(albums).forEach(([file, url]) => {
+Object.entries(albums).toReversed().forEach(([file, url]) => {
     const card = document.createElement("div");
     card.className = "album-card"
 
