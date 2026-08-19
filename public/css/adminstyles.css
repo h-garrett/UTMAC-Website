@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    padding: 32px;
+}
+
+#home {
+    background-color: grey;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    align-self: center;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+#home:hover {
+    background-color: darkgray;
+}

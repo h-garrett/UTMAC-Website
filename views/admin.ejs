@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="css/adminstyles.css" rel="stylesheet">
+    <script type="module" src="../js/admin.js" defer></script>
+    <title>UTMAC Admin</title>
+</head>
+<body>
+    <h1>Current Phase: 
+        <strong id="vote-status-text" style="text-transform: uppercase;"></strong>
+    </h1>
+    <form id="nomination-form" action="/api/settings/nomination" method="POST">
+        <h2>Nomination Link:
+            <label for="nominationLink"></label>
+            <input type="url" id="nominationLink" name="nominationLink" required>
+            <button>submit</button>
+        </h2>
+    </form>
+
+    <form id="voting-form" action="/api/settings/voting" method="POST">
+        <h2>Voting Link:
+            <label for="votingLink"></label>
+            <input type="url" id="votingLink" name="votingLink" required>
+            <button>submit</button>
+        </h2>
+    </form>
+
+    <form id="phase-form" action="/api/settings/phase" method="POST">
+        <h2>Phase Override: 
+            <label for="phaseOverride"></label>
+            <input type="checkbox" id="phaseOverride" name="phaseOverride">
+            <label for="setPhase"></label>
+            <select name="setPhase">
+                <option value="nominations">Nominate</option>
+                <option value="voting">Vote</option>
+                <option value="closed">Closed</option>
+                <option value="listen">Listen</option>
+            </select>
+            <button>submit</button>
+        </h2>
+    </form>
+
+    <form id="genre-form" action="/api/settings/genre" method="POST">
+        <h2>Genre of the Week:
+            <label for="setGenre"></label>
+            <input type="text" id="setGenre" name="setGenre" required>
+            <button>submit</button>
+        </h2>
+    </form>
+    <a href="/" id="home">Home</a>
+
+    <p id="save-status"></p>
+</body>
+</html>

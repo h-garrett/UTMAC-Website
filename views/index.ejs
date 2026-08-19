@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="main">
+        <div id="main-container">
+            <div class="about">
+                <h1>WHAT IS UTMAC?</h1>
+                <h2><span>The University of Texas Music Appreciation Club</span> 
+                is an organization for
+                students at UT to share and expand their music tastes. 
+                Each week, our members vote on an album to listen to and discuss. 
+                Check out some of the albums we've listened to below!</h2>
+            </div>
+            <div class="vote-box">
+                <h3 class="vote-status">
+                    <span class="live-indicator"></span>
+                    <span id="vote-status-text">Voting is live!</span>
+                </h3>
+                <a class="button" id="vote-link" href="" target="_blank">VOTE NOW</a>
+            </div>
+        </div>
+    </div>
+    <h1 id="weekly-schedule">THE WEEKLY SCHEDULE</h2>
+    <img class="schedule" src="images/UTMAC Website.svg">
+    <h2 id="prev-albums">Previous Albums of the Week
+        <div class="grid" id="album-grid"></div>
+    </h2>
+    </div>
+</body>
+</html>
