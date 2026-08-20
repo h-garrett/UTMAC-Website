@@ -10,6 +10,10 @@
     --light-green: #a4e4ada4;
     --pink: #e756dbb6;
     --light-pink: #ffc5fab6;
+
+    /* gradient for status box */
+    --color-start: #161620;
+    --color-end: #161620;
 }
 
 * {
@@ -34,12 +38,13 @@ body {
     font-family: Georgia, "Times New Roman", serif;
 }
 
-nav {
+.nav {
     min-height: 96px;
     display: flex;
     align-items: stretch;
     background-color: var(--dark-purple);
     position: sticky;
+    top: 0;
     padding-right: clamp(24px, 15vw, 210px);
 }
 
@@ -128,52 +133,67 @@ nav {
 }
 
 .album-this-week {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     color: var(--off-white);
     font-weight: 800; 
     font-size: clamp(0.9rem, 2vw, 2rem);
     padding-bottom: 0px;
     max-width: 35vh;
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .artist-this-week {
     font-style: italic;
     font-size: clamp(0.8rem, 1.5vw, 2rem);
     text-align: center;
+    font-weight: 500;
 }
 
 .vote-box {
-    min-width: clamp(147px, 22vw, 294px);
-    min-height: clamp(107px, 16vw, 214px);
-    padding: 32px 48px;
+    min-width: clamp(150px, 22vw, 214px);
+    min-height: clamp(150px, 32vw, 400px);
+    padding: clamp(8px, 5vw, 24px);
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: var(--dark-purple);
-    gap: 16px;
+    gap: 64px;
     border-radius: 8px;
     align-items: center;
+
+    border: 4px solid transparent;
+    border-radius: 8px;
+    
+    background: 
+        linear-gradient(var(--dark-purple), var(--dark-purple)) padding-box, 
+        linear-gradient(to bottom left, var(--color-start) 40%, var(--color-end)) border-box;
 }
 
 .vote-status {
     display: flex;
+    justify-content: center;
+    width: 100%;
     margin: 0;
     color: var(--off-white);
-    font-size: clamp(0.9rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw, 3rem);
+    text-transform: uppercase;
     white-space: wrap;
     align-items: center;
     gap: 0.5rem;
     text-align: center;
     white-space: pre-line;
+    white-space: nowrap;
 }
 
 #genre-text {
     padding: 0px;
     margin: 0px;
-    text-shadow: 1px 1px 4px var(--burnt-orange);
     text-transform: uppercase;
-    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 2vw, 2rem);
 }
 
 .live-indicator {
@@ -203,20 +223,25 @@ nav {
 
 #vote-link {
     min-height: auto;
-    padding: 16px 24px;
+    min-width: clamp(35px, 10vw, 300px);
+    padding: 16px 32px;
     border: 2px solid var(--off-white);
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    font-size: clamp(0.75rem, 1.2vw, 1.25rem);
     line-height: 1;
     font-weight: bold;
     border-radius: 4px;
     text-align: center;
-
+    white-space: nowrap;
 }
 
 .schedule {
     flex: 1;
-    padding: 0 clamp(5px, 15vw, 210px) clamp(44px, 7vw, 100px);
+    padding: 0;
     align-self: center;
+    display: block;
+    width: 100%;
+    margin: 0;
+
 }
 
 #weekly-schedule {
@@ -300,7 +325,7 @@ nav {
 }
 
 
-@media (max-width: 620px) {
+@media (max-width: 700px) {
     .logo, .menu {
         display: none;
     }
@@ -372,6 +397,7 @@ nav {
     .vote-box {
         width: 100%;
         min-height: 140px;
+        gap: 32px
     }
 
     #album-grid {

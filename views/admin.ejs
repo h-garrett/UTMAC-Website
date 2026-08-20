@@ -15,40 +15,62 @@
     <form id="nomination-form" action="/api/settings/nomination" method="POST">
         <h2>Nomination Link:
             <label for="nominationLink"></label>
-            <input type="url" id="nominationLink" name="nominationLink" required>
-            <button>submit</button>
+            <input type="url" id="nominationLink" name="nominationLink" value="<%= settings.nominationLink || '' %>">
+            <button>Submit</button>
         </h2>
     </form>
 
     <form id="voting-form" action="/api/settings/voting" method="POST">
         <h2>Voting Link:
             <label for="votingLink"></label>
-            <input type="url" id="votingLink" name="votingLink" required>
-            <button>submit</button>
+            <input type="url" id="votingLink" name="votingLink" value="<%= settings.votingLink || '' %>">
+            <button>Submit</button>
         </h2>
     </form>
 
     <form id="phase-form" action="/api/settings/phase" method="POST">
         <h2>Phase Override: 
             <label for="phaseOverride"></label>
-            <input type="checkbox" id="phaseOverride" name="phaseOverride">
+            <input type="checkbox" id="phaseOverride" name="phaseOverride" <%= settings.phaseOverride ? 'checked' : ''%>>
             <label for="setPhase"></label>
-            <select name="setPhase">
-                <option value="nominations">Nominate</option>
-                <option value="voting">Vote</option>
-                <option value="closed">Closed</option>
-                <option value="listen">Listen</option>
+            <select name="setPhase" id="setPhase">
+                <option value="nominations" <%= settings.setPhase === 'nominations' ? 'selected' : '' %>>Nominate</option>
+                <option value="voting" <%= settings.setPhase === 'voting' ? 'selected' : '' %>>Vote</option>
+                <option value="closed" <%= settings.setPhase === 'closed' ? 'selected' : '' %>>Closed</option>
+                <option value="listen" <%= settings.setPhase === 'listen' ? 'selected' : '' %>>Listen</option>
+                <option value="custom" <%= settings.setPhase === 'custom' ? 'selected' : '' %>>Custom</option>
             </select>
-            <button>submit</button>
+            <button>Submit</button>
         </h2>
     </form>
 
     <form id="genre-form" action="/api/settings/genre" method="POST">
         <h2>Genre of the Week:
             <label for="setGenre"></label>
-            <input type="text" id="setGenre" name="setGenre" required>
-            <button>submit</button>
+            <input type="text" id="setGenre" name="setGenre" required value="<%= settings.setGenre || '' %>">
+            <button>Submit</button>
         </h2>
+    </form>
+
+    <form id="custom-phase-form" action="/api/settings/custom-phase" method="POST">
+        <h2>Custom phase:
+            <br>
+            <label for="showButton">Button?</label>
+            <input type="checkbox" id="showButton" name="showButton" <%= settings.showButton ? 'checked' : ''%>>
+            <br>
+            <label for="buttonLink">Button Link:</label>
+            <input type="url" id="buttonLink" name="buttonLink" value="<%= settings.buttonLink || '' %>">
+            <br>
+            <label for="buttonText">Button Text:</label>
+            <input type="text" name="buttonText" id="buttonText" value="<%= settings.buttonText || '' %>">
+            <br>
+            <label for="customText">Text Box:</label>
+            <input type="text" name="customText" id="customText" value="<%= settings.customText || '' %>">
+            <br>
+
+            <button>Submit</button>
+        </h2>
+
     </form>
     <a href="/" id="home">Home</a>
 

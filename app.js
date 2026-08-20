@@ -107,6 +107,13 @@ app.post('/api/settings/nomination', requireAdmin, async (req, res) => {
     }
 });
 
+app.get('/api/settings/nomination', async (req, res) => {
+    const settings = await Settings.findOne();
+    res.json({
+        genre: settings.nominationLink
+    });
+});
+
 app.post('/api/settings/voting', requireAdmin, async (req, res) => {
     try {
         await Settings.findOneAndUpdate(
@@ -122,6 +129,13 @@ app.post('/api/settings/voting', requireAdmin, async (req, res) => {
     } catch (err) {
         console.log(err);
     }
+});
+
+app.get('/api/settings/voting', async (req, res) => {
+    const settings = await Settings.findOne();
+    res.json({
+        votingLink: settings.votingLink
+    });
 });
 
 app.post('/api/settings/phase', requireAdmin, async (req, res) => {
@@ -142,6 +156,38 @@ app.post('/api/settings/phase', requireAdmin, async (req, res) => {
     }
 });
 
+app.post('/api/settings/custom-phase', requireAdmin, async (req, res) => {
+    try {
+        await Settings.findOneAndUpdate(
+            {},             // find the first settings document
+            {
+                phaseOverride: req.body.phaseOverride === "on",
+                setPhase: req.body.setPhase,
+                showButton: req.body.showButton === "on",
+                buttonLink: req.body.buttonLink,
+                customText: req.body.customText,
+                buttonText: req.body.buttonText
+            },       // update it with the submitted form data
+            { upsert: true } // create one if none exists
+        );
+
+        res.redirect('/admin');
+
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+app.get('/api/settings/custom-phase', async (req, res) => {
+    const settings = await Settings.findOne();
+    res.json({
+        showButton: settings.showButton,
+        buttonLink: settings.buttonLink,
+        customText: settings.customText,
+        buttonText: settings.buttonText
+    });
+});
+
 app.post('/api/settings/genre', requireAdmin, async (req, res) => {
     try {
         await Settings.findOneAndUpdate(
@@ -160,12 +206,21 @@ app.post('/api/settings/genre', requireAdmin, async (req, res) => {
 });
 
 
-app.get('/about', (req, res) => {
-    res.render('about');
+app.get('/contact', (req, res) => {
+    res.render('contact');
 });
 
-app.get('/admin', requireAdmin, (req, res, next) => {
-    res.render('admin');
+app.get('/admin', requireAdmin, async (req, res, next) => {
+    try {
+        const settings = await Settings.findOne();
+
+        res.render('admin', {
+            settings: settings || {}
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Failed to load admin settings');
+    }
 });
 
 app.get('/login', (req, res) => {

@@ -26,6 +26,27 @@ const settingsSchema = new Schema({
     setGenre : {
         type: String,
         default: ""
+    },
+
+    // custom phase settings
+    showButton : {
+        type: Boolean,
+        default: false
+    },
+
+    buttonLink : {
+        type: String,
+        default: ""
+    },
+
+    customText : {
+        type: "String",
+        default: ""
+    },
+
+    buttonText : {
+        type: "String",
+        default: ""
     }
 
 }, {collection: 'Settings', timestamps: true});
