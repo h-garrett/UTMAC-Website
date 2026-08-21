@@ -9,6 +9,7 @@ const {
     getCurrentVotingPhase
 } = require('./utils/schedule');
 const session = require('express-session');
+const  {MongoStore} = require('connect-mongo');
 const bcrypt = require('bcrypt');
 const PORT = process.env.PORT || 3000;
 
@@ -32,8 +33,12 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         httpOnly: true,
-        secure: false, // CHANGE TO TRUE LATER
-        sameSite: 'lax'
+        secure: true, // CHANGE TO TRUE LATER
+        sameSite: 'lax',
+        store: MongoStore.create({
+            mongoUrl: dburi,
+            collectionName: 'sessions'
+        })
     }
 }));
 app.use(express.static('public'));
