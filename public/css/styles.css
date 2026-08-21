@@ -261,20 +261,22 @@ body {
 }
 
 #prev-albums {
-    text-align: center;
-    font-size: clamp(1rem, 3vw, 2rem);
-    text-transform: uppercase;
-
-
     border: 4px solid transparent;
     border-radius: 4px;
     background: 
         linear-gradient(var(--dark-grey), var(--dark-grey)) padding-box, 
         linear-gradient(to bottom left, var(--burnt-orange) 40%, var(--yellow)) border-box;
     padding: 8px;
-    text-shadow: 1px 1px 2px var(--burnt-orange);
     
     margin: 0px clamp(8px, 2.5vw, 32px) 16px;
+}
+
+#prev-albums h2 {
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 3rem);
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px var(--burnt-orange);
+    margin: clamp(8px, 2.5vw, 32px);
 }
 
 #album-grid {
@@ -403,8 +405,11 @@ body {
 
     .schedule {
         padding: 0;
-        margin: 0px 8px;
+        margin: 0px 16px 16px 16px;
         align-self: center;
+        justify-content: center;
         display: block;
+        height: auto;
+        width: 95%;
     }
 }
