@@ -10,12 +10,13 @@ const {
 } = require('./utils/schedule');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
+const PORT = process.env.PORT || 3000;
 
 // connect to mongodb
 const dburi = process.env.MONGODB_URI;
 mongoose.connect(dburi)
-    .then((result) => app.listen(3000, () => {
-        console.log("connected to db");
+    .then((result) => app.listen(PORT, () => {
+        console.log(`SERVER RUNNING ON PORT ${PORT}`);
     }))
     .catch((err) => console.log("Mongo connection error: ", err));
 

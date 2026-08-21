@@ -224,7 +224,7 @@ body {
 #vote-link {
     min-height: auto;
     min-width: clamp(35px, 10vw, 300px);
-    padding: 16px 32px;
+    padding: clamp(12px, 2vw, 24px) clamp(24px, 4vw, 48px);
     border: 2px solid var(--off-white);
     font-size: clamp(0.75rem, 1.2vw, 1.25rem);
     line-height: 1;
@@ -235,13 +235,9 @@ body {
 }
 
 .schedule {
-    flex: 1;
-    padding: 0;
+    margin: 0px clamp(0px, 10vw, 500px);
     align-self: center;
     display: block;
-    width: 100%;
-    margin: 0;
-
 }
 
 #weekly-schedule {
@@ -303,7 +299,7 @@ body {
 }
 
 #aotw:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .album-card a {
@@ -406,6 +402,9 @@ body {
     }
 
     .schedule {
-        padding: 0 clamp(5px, 2vw, 210px) clamp(44px, 7vw, 100px);
+        padding: 0;
+        margin: 0px 8px;
+        align-self: center;
+        display: block;
     }
 }
