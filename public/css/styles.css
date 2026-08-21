@@ -46,10 +46,15 @@ body {
     position: sticky;
     top: 0;
     padding-right: clamp(24px, 15vw, 210px);
+    z-index: 999;
 }
 
-.nav-mobile {
+#schedule-button {
     display: none;
+}
+
+#mobile-schedule {
+
 }
 
 .logo > img{
@@ -301,7 +306,7 @@ body {
 }
 
 #aotw:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .album-card a {
@@ -355,6 +360,10 @@ body {
         transition: 0.15s ease-out;
     }
 
+    #schedule-button {
+        display: flex;
+    }
+
 
     .menu > .button {
         height: 100%;
@@ -367,6 +376,8 @@ body {
         max-height: 10vh;
     }
 
+
+
     #sidebar-active:checked ~ .menu {
         left: 0;
     }
@@ -378,8 +389,6 @@ body {
         top: 0;
         left: 0;
     }
-
-
 
     .main {
         padding: 48px 20px;

@@ -53,6 +53,10 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/schedule', (req, res) => {
+    res.render('schedule');
+});
+
 app.get('/api/albums', async (req, res) => {
     try {
         const albums = await Album.find();
