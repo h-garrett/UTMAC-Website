@@ -31,14 +31,14 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: dburi,
+        collectionName: 'sessions'
+    }),
     cookie: {
         httpOnly: true,
-        secure: true, // CHANGE TO TRUE LATER
+        secure: process.env.NODE_ENV === 'production', // CHANGE TO TRUE LATER
         sameSite: 'lax',
-        store: MongoStore.create({
-            mongoUrl: dburi,
-            collectionName: 'sessions'
-        })
     }
 }));
 app.use(express.static('public'));
