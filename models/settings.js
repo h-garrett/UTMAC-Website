@@ -40,12 +40,17 @@ const settingsSchema = new Schema({
     },
 
     customText : {
-        type: "String",
+        type: String,
+        default: ""
+    },
+
+    customSubtext : {
+        type: String,
         default: ""
     },
 
     buttonText : {
-        type: "String",
+        type: String,
         default: ""
     }
 

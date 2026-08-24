@@ -171,12 +171,11 @@ app.post('/api/settings/custom-phase', requireAdmin, async (req, res) => {
         await Settings.findOneAndUpdate(
             {},             // find the first settings document
             {
-                phaseOverride: req.body.phaseOverride === "on",
-                setPhase: req.body.setPhase,
                 showButton: req.body.showButton === "on",
                 buttonLink: req.body.buttonLink,
                 customText: req.body.customText,
-                buttonText: req.body.buttonText
+                buttonText: req.body.buttonText,
+                customSubtext: req.body.customSubtext
             },       // update it with the submitted form data
             { upsert: true } // create one if none exists
         );
@@ -194,7 +193,8 @@ app.get('/api/settings/custom-phase', async (req, res) => {
         showButton: settings.showButton,
         buttonLink: settings.buttonLink,
         customText: settings.customText,
-        buttonText: settings.buttonText
+        buttonText: settings.buttonText,
+        customSubtext: settings.customSubtext
     });
 });
 

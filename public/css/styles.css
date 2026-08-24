@@ -166,7 +166,7 @@ body {
     flex-direction: column;
     justify-content: center;
     background-color: var(--dark-purple);
-    gap: 64px;
+    gap: 48px;
     border-radius: 8px;
     align-items: center;
 
@@ -192,6 +192,14 @@ body {
     text-align: center;
     white-space: pre-line;
     white-space: nowrap;
+}
+
+.subtext {
+    padding: 0px;
+    margin: 4px 0px;
+    font-size: clamp(0.9rem, 2vw, 2rem);
+    color: var(--burnt-orange);
+    font-weight: 500;
 }
 
 #genre-text {

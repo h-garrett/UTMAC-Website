@@ -149,6 +149,11 @@ async function update() {
         voteStatus.textContent = data.customText;
         voteStatus.style.whiteSpace = "normal";
 
+        const subtext = document.createElement("h3");
+        subtext.textContent = data.customSubtext;
+        subtext.className = "subtext";
+        voteStatus.appendChild(subtext);
+
 
         if (data.showButton) {
             const voteButton = document.createElement("a");
@@ -172,7 +177,7 @@ async function loadAlbumGrid() {
 
     const grid = document.querySelector("#album-grid");
 
-    albums.slice(0, -1).toReversed().forEach((album) => {
+    albums.toReversed().forEach((album) => {
     const card = document.createElement("div");
     card.className = "album-card"
 
