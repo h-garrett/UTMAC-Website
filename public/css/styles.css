@@ -12,8 +12,8 @@
     --light-pink: #ffc5fab6;
 
     /* gradient for status box */
-    --color-start: #161620;
-    --color-end: #161620;
+    --color-start: var(--burnt-orange);
+    --color-end: var(--yellow);
 }
 
 * {
