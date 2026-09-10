@@ -8,6 +8,7 @@ const VotingPhase = Object.freeze( {
 });
 
 
+
 function getCurrentVotingPhase(settings) {
     if (settings.phaseOverride) {
         return settings.setPhase;
@@ -15,40 +16,42 @@ function getCurrentVotingPhase(settings) {
 
     const now = new Date();
 
-    const day = now.getDay();
-    const hour = now.getHours();
+    // Always evaluate the schedule in the voting timezone.
+    const parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Chicago",
+        weekday: "short",
+        hour: "numeric",
+        hour12: false,
+    }).formatToParts(now);
 
-    if (day === 0) {
-        return VotingPhase.CLOSED;
-    }
+    const weekday = parts.find(p => p.type === "weekday").value;
+    console.log(weekday);
+    const hour = Number(parts.find(p => p.type === "hour").value);
+    console.log(hour);
 
-    if (day === 1 || day === 2) {
-        return VotingPhase.LISTEN;
-    }
-
-    if (day === 3) {
-        if (hour >= 22) {
-            return VotingPhase.NOMINATIONS;
-        }
-        return VotingPhase.LISTEN;
-    }
-
-    if (day === 4) {
-        if (hour >= 22) {
-            return VotingPhase.VOTING;
-        }
-        return VotingPhase.NOMINATIONS;
-    }
-
-    if (day === 5) {
-        if (hour >= 22) {
+    switch (weekday) {
+        case "Sun":
             return VotingPhase.CLOSED;
-        }
-        return VotingPhase.VOTING;
-    }
 
-    return VotingPhase.CLOSED;
+        case "Mon":
+        case "Tue":
+            return VotingPhase.LISTEN;
+
+        case "Wed":
+            return hour >= 22 ? VotingPhase.NOMINATIONS : VotingPhase.LISTEN;
+
+        case "Thu":
+            return hour >= 22 ? VotingPhase.VOTING : VotingPhase.NOMINATIONS;
+
+        case "Fri":
+            return hour >= 22 ? VotingPhase.CLOSED : VotingPhase.VOTING;
+
+        default:
+            return VotingPhase.CLOSED;
+    }
 }
+
+
 
 module.exports = {
     VotingPhase,
