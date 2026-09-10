@@ -120,7 +120,8 @@ app.post('/api/settings/nomination', requireAdmin, async (req, res) => {
 app.get('/api/settings/nomination', async (req, res) => {
     const settings = await Settings.findOne();
     res.json({
-        genre: settings.nominationLink
+        genre: settings.setGenre,
+        nominationLink: settings.nominationLink
     });
 });
 
