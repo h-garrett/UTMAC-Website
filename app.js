@@ -37,7 +37,7 @@ app.use(session({
     }),
     cookie: {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // CHANGE TO TRUE LATER
+        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
     }
 }));
@@ -45,6 +45,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 
 function requireAdmin(req, res, next) {
+
     if (req.session.isAdmin) {
         return next();
     }
@@ -240,18 +241,15 @@ app.get('/login', (req, res) => {
 
 
 app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
 
-    const usernameMatches =
-        username === process.env.ADMIN_USERNAME;
-
+    const password = req.body.password;
     const passwordMatches =
         await bcrypt.compare(
             password,
             process.env.ADMIN_PASSWORD_HASH
         );
 
-    if (usernameMatches && passwordMatches) {
+    if (passwordMatches) {
         req.session.isAdmin = true;
         return res.redirect('/admin');
     }
