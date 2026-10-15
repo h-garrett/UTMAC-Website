@@ -26,7 +26,7 @@ When making changes to the website, all members should work on their own branche
 ## ADMIN PAGE
 The points below mention accessing the admin page. Here is how the admin page can be accessed:
 - Navigate to musicclubatut.org/admin
-- Password is `ilovemusic665!`
+- DM Garrett for password if you don't already have it
 
 ## Admin Page Fields
 ### Nomination Link: 
