@@ -2,6 +2,7 @@
 
 ## Members
  - Garrett H
+ - Sean R
 
 ## New Members
 
